@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 50px;
+        }
+        form {
+            margin: auto;
+            width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+        button:hover {
+            background-color: #f57c00;
+        }
+        #result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeIn 2s;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Age Calculator with Animation</h1>
+    <form>
+        <label for="dob">Enter Your Birth Date:</label>
+        <input type="date" id="dob" required>
+        <button type="button" onclick="calculateAge()">Calculate Age</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            const dob = new Date(document.getElementById("dob").value);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+            document.getElementById("result").innerText = 🎉 You are ${age} years old!;
+        }
+    </script>
+</body>
+</html>
